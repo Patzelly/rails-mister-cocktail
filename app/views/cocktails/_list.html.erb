@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+  <div class="col-xs-10 col-offset-xs-1">
+      <div class="product">
+        <div class='product-upvote'>
+          <div class="product-arrow"></div>
+          <div class='product-count'>95</div>
+        </div>
+        <img src="kudoz.jpg" alt="kudoz" class="product-image hidden-xs">
+        <div class='product-body'>
+          <h2><%= cocktail.name %></h2>
+          <p><%= cocktail.ingredients.first.name %></p>
+          <%= link_to "Show Ingredients", cocktail_path(cocktail) %>
+        </div>
+        <ul class="list-inline product-controls hidden-sm hidden-xs">
+          <li><%= link_to "Show Ingredients", cocktail_path(cocktail), {class: "navbar-wagon-button btn"} %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
