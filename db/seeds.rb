@@ -10,7 +10,8 @@ require 'json'
 require 'open-uri'
 puts 'Cleaning database...'
 
-
+Ingredient.destroy_all
+Cocktail.destroy_all
 
 url = 'http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 user_serialized = open(url).read
@@ -21,11 +22,15 @@ ingredient["drinks"].first(6).each do |ingredient|
 end
 
 
-url_cocktails = 'http://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic'
-cocktail_serialized = open(url_cocktails).read
-cocktails = JSON.parse(cocktail_serialized)
+# url_cocktails = 'http://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic'
+# cocktail_serialized = open(url_cocktails).read
+# cocktails = JSON.parse(cocktail_serialized)
 
-cocktails["drinks"].first(6).each do |cocktail|
-  Cocktail.create(name: cocktail["strDrink"])
-end
+# cocktails["drinks"].first(6).each do |cocktail|
+#   Cocktail.create(name: cocktail["strDrink"])
+# end
 
+url = "http://static.750g.com/images/622-auto/b520523117d647dab6b842a36f4cc7f5/mojito-le-vrai.jpg"
+cocktail = Cocktail.new(name: 'Mojito')
+cocktail.remote_photo_url = url
+cocktail.save

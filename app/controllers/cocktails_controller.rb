@@ -21,11 +21,8 @@ class CocktailsController < ApplicationController
     end
   end
 
-  def destroy
-  end
-
   private
   def cocktail_params
-     params.require(:cocktail).permit(:name)
+     params.require(:cocktail).permit(:name, :photo, :photo_cache)
   end
 end
